@@ -1,0 +1,22 @@
+<div class="sample-wrapper">
+  <form novalidate [formGroup]="form">
+  <igx-input-group #inputGroup [igxToggleAction]="dropDown" class="input-group">
+      <input #input class="input"  type="text" igxInput [igxDropDownItemNavigation]="dropDown"
+          readonly= "true"
+          placeholder="choose an option"
+          (keydown.ArrowDown)="openDropDown()"
+          formControlName="selected"
+          />
+      <igx-suffix igxButton="icon" class="dropdownToggleButton" igxRipple>
+          <igx-icon>arrow_drop{{ dropDown.collapsed ? '_down' : '_up' }}</igx-icon>
+      </igx-suffix>
+  </igx-input-group>
+
+  <span>Selected: {{ dropDown.selectedItem?.value }}</span>
+  <igx-drop-down #dropDown  #dropDown (onSelection)="onSelection($event)"  width="width">
+      <igx-drop-down-item *ngFor="let selectOption of options" [value]="selectOption.value">
+        {{ selectOption.name }}
+      </igx-drop-down-item>
+  </igx-drop-down>
+  </form>
+</div>

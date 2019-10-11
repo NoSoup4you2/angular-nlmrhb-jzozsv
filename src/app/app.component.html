@@ -1,0 +1,9 @@
+<form novalidate [formGroup]="form" (keydown.enter)="confirmSubmit($event)" (submit)="create(form.value)">
+<button igxButton="raised" (click)="writeStuff()" igxRipple="white">Raised</button>
+
+<app-ig-dropdown
+        guid='820E04E0-8084-4D9C-A268-D8C0D21E74F6'
+        width="200px"
+        formControlName="combo1">
+</app-ig-dropdown>
+</form>
